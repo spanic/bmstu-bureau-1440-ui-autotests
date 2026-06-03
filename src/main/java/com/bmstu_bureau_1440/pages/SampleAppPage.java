@@ -23,8 +23,8 @@ public class SampleAppPage {
     private final Page page;
 
     public SampleAppPage(Page page) {
-        page.navigate("http://www.uitestingplayground.com/sampleapp");
         this.page = page;
+        page.navigate("http://www.uitestingplayground.com/sampleapp");
     }
 
     public Locator getLoginStatus() {
