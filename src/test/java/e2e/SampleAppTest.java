@@ -1,4 +1,4 @@
-package e2e.sample_app;
+package e2e;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;

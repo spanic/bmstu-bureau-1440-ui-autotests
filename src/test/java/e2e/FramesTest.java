@@ -1,4 +1,4 @@
-package e2e.frames;
+package e2e;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -40,8 +40,8 @@ public class FramesTest extends BasePlaywrightTestFixture {
         clickButtonAndValidateResult(frameLocator, framesPage.getPrimaryButton());
     }
 
-    private void clickButtonAndValidateResult(FrameLocator frame, FrameLocatorFn buttonFn) {
-        var button = buttonFn.locate(frame);
+    private void clickButtonAndValidateResult(FrameLocator frame, FrameLocatorFn buttonLocatorFn) {
+        var button = buttonLocatorFn.locate(frame);
         button.click();
         assertThat(framesPage.getResultText().locate(frame)).containsText(button.textContent());
     }
