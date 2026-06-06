@@ -1,4 +1,4 @@
-package e2e.config;
+package e2e.config.browsers;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
@@ -8,7 +8,7 @@ public abstract class BrowserConfig {
 
     public abstract Browser initBrowser(Playwright playwright);
 
-    public void applyContext(BrowserContext context) {
+    public void updateContext(BrowserContext context) {
     }
 
 }

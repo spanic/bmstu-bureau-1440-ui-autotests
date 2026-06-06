@@ -1,4 +1,4 @@
-package e2e.config;
+package e2e.config.browsers;
 
 import java.util.Map;
 

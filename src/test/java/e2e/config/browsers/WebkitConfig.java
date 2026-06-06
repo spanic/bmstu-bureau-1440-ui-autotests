@@ -1,4 +1,4 @@
-package e2e.config;
+package e2e.config.browsers;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Playwright;

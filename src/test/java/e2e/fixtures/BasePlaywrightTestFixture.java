@@ -11,9 +11,8 @@ import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
-import e2e.config.BrowserConfig;
 import e2e.config.PlaywrightConfig;
-import e2e.config.PlaywrightConfigLoader;
+import e2e.config.browsers.BrowserConfig;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BasePlaywrightTestFixture {
@@ -26,7 +25,7 @@ public class BasePlaywrightTestFixture {
 
     @BeforeAll
     protected void setup() {
-        playwrightConfig = PlaywrightConfigLoader.load();
+        playwrightConfig = PlaywrightConfig.Loader.load();
         browserConfig = playwrightConfig.getActiveBrowserConfig();
         playwright = Playwright.create();
         browser = browserConfig.initBrowser(playwright);
@@ -44,7 +43,7 @@ public class BasePlaywrightTestFixture {
     @BeforeEach
     void createContextAndPage() {
         context = browser.newContext();
-        browserConfig.applyContext(context);
+        browserConfig.updateContext(context);
         page = context.newPage();
     }
 

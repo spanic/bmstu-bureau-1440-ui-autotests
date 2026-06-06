@@ -1,4 +1,4 @@
-package e2e.config;
+package e2e.config.browsers;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class ChromiumConfig extends BrowserConfig {
     }
 
     @Override
-    public void applyContext(BrowserContext context) {
+    public void updateContext(BrowserContext context) {
         if (permissions != null) {
             context.grantPermissions(permissions);
         }

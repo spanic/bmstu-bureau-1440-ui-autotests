@@ -1,6 +1,6 @@
-browser: firefox
+browser: chrome
 
-chromium:
+chromiumConfig:
   channel: chrome
   args:
     - --unsafely-treat-insecure-origin-as-secure=http://www.uitestingplayground.com
@@ -8,11 +8,11 @@ chromium:
     - clipboard-read
     - clipboard-write
 
-firefox:
+firefoxConfig:
   userPrefs:
     dom.events.testing.asyncClipboard: true
     dom.events.asyncClipboard.readText: true
     dom.securecontext.allowlist: www.uitestingplayground.com
 
 ## For Webkit clipboard permissions are not supported
-webkit: {}
+webkitConfig: {}

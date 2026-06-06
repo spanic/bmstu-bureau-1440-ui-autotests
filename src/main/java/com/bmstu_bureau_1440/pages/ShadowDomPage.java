@@ -12,7 +12,6 @@ public class ShadowDomPage {
     private final Page page;
 
     public ShadowDomPage(BrowserContext context, Page page) {
-        // context.grantPermissions(List.of("clipboard-read", "clipboard-write"));
         this.page = page;
         this.page.navigate("http://www.uitestingplayground.com/shadowdom");
     }
