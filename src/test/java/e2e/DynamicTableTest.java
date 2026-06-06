@@ -10,7 +10,15 @@ import org.junit.jupiter.api.Test;
 import com.bmstu_bureau_1440.pages.DynamicTablePage;
 
 import e2e.fixtures.BasePlaywrightTestFixture;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 
+@Epic("UI Testing Playground")
+@Feature("Dynamic Table")
+@DisplayName("Dynamic Table")
 public class DynamicTableTest extends BasePlaywrightTestFixture {
 
     private DynamicTablePage dynamicTablePage;
@@ -21,7 +29,9 @@ public class DynamicTableTest extends BasePlaywrightTestFixture {
     }
 
     @Test
-    @DisplayName("Validating dynamic table")
+    @Story("Cell value lookup")
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Chrome CPU cell matches the highlighted validation value")
     public void validateDynamicTable() {
         String chromeCellText = dynamicTablePage.getCellText("CPU", "Chrome");
         String validationValue = dynamicTablePage.getValidationValue();

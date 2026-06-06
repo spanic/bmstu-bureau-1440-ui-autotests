@@ -10,7 +10,15 @@ import org.junit.jupiter.api.Test;
 import com.bmstu_bureau_1440.pages.ShadowDomPage;
 
 import e2e.fixtures.BasePlaywrightTestFixture;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 
+@Epic("UI Testing Playground")
+@Feature("Shadow DOM")
+@DisplayName("Shadow DOM")
 public class ShadowDomTest extends BasePlaywrightTestFixture {
 
     private ShadowDomPage shadowDomPage;
@@ -21,7 +29,9 @@ public class ShadowDomTest extends BasePlaywrightTestFixture {
     }
 
     @Test
-    @DisplayName("Validating shadow dom")
+    @Story("GUID generator")
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Generated GUID matches the value copied to the clipboard")
     public void validateShadowDom() {
         assertThat(shadowDomPage.getGuidGeneratorComponent()).isVisible();
 

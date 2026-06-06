@@ -14,7 +14,15 @@ import com.bmstu_bureau_1440.pages.ScrollToClickPage;
 import com.microsoft.playwright.Locator;
 
 import e2e.fixtures.BasePlaywrightTestFixture;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 
+@Epic("UI Testing Playground")
+@Feature("Scrolling")
+@DisplayName("Scrolling")
 public class ScrollToClickTest extends BasePlaywrightTestFixture {
 
     private ScrollToClickPage scrollToClickPage;
@@ -25,7 +33,9 @@ public class ScrollToClickTest extends BasePlaywrightTestFixture {
     }
 
     @Test
-    @DisplayName("Validating first button")
+    @Story("Scroll to click")
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Each button scrolls into view and is clicked in order")
     public void validateScrollToClick() {
         List<Supplier<Locator>> buttonFinders = List.of(
                 scrollToClickPage::findFirstButton,

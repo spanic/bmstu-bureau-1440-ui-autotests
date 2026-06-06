@@ -11,7 +11,15 @@ import com.bmstu_bureau_1440.pages.FramesPage.FrameLocatorFn;
 import com.microsoft.playwright.FrameLocator;
 
 import e2e.fixtures.BasePlaywrightTestFixture;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 
+@Epic("UI Testing Playground")
+@Feature("Frames & iFrames")
+@DisplayName("Frames & iFrames")
 public class FramesTest extends BasePlaywrightTestFixture {
 
     private FramesPage framesPage;
@@ -22,13 +30,17 @@ public class FramesTest extends BasePlaywrightTestFixture {
     }
 
     @Test
-    @DisplayName("Validating outer frame")
+    @Story("Outer frame")
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Buttons inside the outer frame respond to clicks")
     public void validateOuterFrame() {
         validateFrame(framesPage.getOuterFrame());
     }
 
     @Test
-    @DisplayName("Validating inner frame")
+    @Story("Inner frame")
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Buttons inside the inner frame respond to clicks")
     public void validateInnerFrame() {
         validateFrame(framesPage.getInnerFrame());
     }

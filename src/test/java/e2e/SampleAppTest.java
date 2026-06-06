@@ -17,7 +17,15 @@ import com.bmstu_bureau_1440.pages.SampleAppPage.LoginState;
 import com.microsoft.playwright.Locator;
 
 import e2e.fixtures.BasePlaywrightTestFixture;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 
+@Epic("UI Testing Playground")
+@Feature("Sample App authentication")
+@DisplayName("Sample App authentication")
 public class SampleAppTest extends BasePlaywrightTestFixture {
 
     private SampleAppPage sampleAppPage;
@@ -28,21 +36,28 @@ public class SampleAppTest extends BasePlaywrightTestFixture {
     }
 
     @Test
-    @DisplayName("Validating initial state")
+    @Story("Initial state")
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Login form starts in a logged-out state")
     public void validatingInitialState() {
         validateLoginStatusState(LoginState.LOGGED_OUT, null);
         validateBaseInputState(sampleAppPage.getUsernameInput(), sampleAppPage.getPasswordInput());
         validateButtonState(sampleAppPage.getLoginButton(), LoginState.LOGGED_OUT);
     }
 
-    @ParameterizedTest(name = "Validating login for username: {0} and password: {1} and expected result: {2}")
+    @Story("Login")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Logging in with valid and invalid credentials")
+    @ParameterizedTest(name = " - username {0} / password {1} : {2}")
     @MethodSource("loginDataAndResultProvider")
     public void validatingLogin(String username, String password, boolean expectedResult) {
         performLogin(username, password, expectedResult);
     }
 
     @Test
-    @DisplayName("Validating logout")
+    @Story("Logout")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Logging out returns the user to the logged-out state")
     public void validatingLogout() {
         performLogin("John Doe", "pwd", true);
 
