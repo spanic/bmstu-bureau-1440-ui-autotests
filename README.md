@@ -1,5 +1,8 @@
 # UI Testing Playground — E2E-тесты на Playwright
 
+> [!IMPORTANT]
+> Пример отчета: 👉🏻 [allure-report.s3-website.cloud.ru](https://allure-report.s3-website.cloud.ru/)
+
 E2E UI-тесты для [UI Testing Playground](http://www.uitestingplayground.com) на [Playwright](https://playwright.dev/java/) и [JUnit 5](https://junit.org/junit5/) + с отчетами в [Allure](https://allurereport.org/)
 
 ![Allure report main page](screenshots/main_page.png)
