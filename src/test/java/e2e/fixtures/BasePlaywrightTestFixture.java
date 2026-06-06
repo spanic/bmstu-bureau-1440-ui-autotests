@@ -8,26 +8,28 @@ import org.junit.jupiter.api.TestInstance;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
-import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
+import e2e.config.BrowserConfig;
+import e2e.config.PlaywrightConfig;
 import e2e.config.PlaywrightConfigLoader;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BasePlaywrightTestFixture {
+
+    private PlaywrightConfig playwrightConfig;
+    private BrowserConfig browserConfig;
 
     Playwright playwright;
     Browser browser;
 
     @BeforeAll
     protected void setup() {
-        var playwrightConfig = PlaywrightConfigLoader.load();
+        playwrightConfig = PlaywrightConfigLoader.load();
+        browserConfig = playwrightConfig.getActiveBrowserConfig();
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(
-                new LaunchOptions()
-                        .setArgs(playwrightConfig.browser.args)
-                        .setChannel("chromium"));
+        browser = browserConfig.initBrowser(playwright);
     }
 
     @AfterAll
@@ -42,6 +44,7 @@ public class BasePlaywrightTestFixture {
     @BeforeEach
     void createContextAndPage() {
         context = browser.newContext();
+        browserConfig.applyContext(context);
         page = context.newPage();
     }
 

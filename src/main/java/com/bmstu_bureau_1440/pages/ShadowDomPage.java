@@ -1,7 +1,5 @@
 package com.bmstu_bureau_1440.pages;
 
-import java.util.List;
-
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
@@ -14,7 +12,7 @@ public class ShadowDomPage {
     private final Page page;
 
     public ShadowDomPage(BrowserContext context, Page page) {
-        context.grantPermissions(List.of("clipboard-read", "clipboard-write"));
+        // context.grantPermissions(List.of("clipboard-read", "clipboard-write"));
         this.page = page;
         this.page.navigate("http://www.uitestingplayground.com/shadowdom");
     }
